@@ -1,6 +1,8 @@
 import axios from "axios";
 import './App.css';
 import Course from './Course';
+
+import Boxes from './components/box/Boxes'
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
 
   return (
     <>
+      <Boxes/>
+      <hr/>
       <h1>Cursos Larnu</h1>
       <div className="course"> {
           post.map((item) => {

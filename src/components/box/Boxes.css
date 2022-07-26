@@ -1,0 +1,28 @@
+.box {
+  font-size: 0.9rem;
+  box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.75);
+  padding: 8px;
+  border-radius: 25px;
+  width: 100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+}
+
+.container__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 25px;
+}
+
+h2 {
+  text-align: center;
+  padding: 25px;
+}
