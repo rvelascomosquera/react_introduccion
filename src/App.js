@@ -1,24 +1,40 @@
-import logo from './logo.svg';
+import axios from "axios";
 import './App.css';
+import Course from './Course';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    axios.get("https://larnu-dev-upy5mhs63a-rj.a.run.app/api/v1/categories")
+    .then(response => {
+      setPost(response.data.communityCategories);
+    });
+  }, []);
+
+  if (!post) return null;
+
+  console.log(post);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Cursos Larnu</h1>
+      <div className="course"> {
+          post.map((item) => {
+            return (
+              <Course
+                key={item.id}
+                background={item.background}
+                icon={item.icon}
+                name={item.name}
+                quizzes={item.totalQuizzes}
+              />
+            )
+          })
+        }
+      </div>
+    </>
   );
 }
 
